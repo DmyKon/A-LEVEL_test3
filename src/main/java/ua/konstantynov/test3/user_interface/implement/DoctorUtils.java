@@ -1,7 +1,7 @@
-package ua.konstantynov.test3.UserInterface.implement;
+package ua.konstantynov.test3.user_interface.implement;
 
-import ua.konstantynov.test3.UserInterface.CommonUtils;
-import ua.konstantynov.test3.UserInterface.UpdatableUtils;
+import ua.konstantynov.test3.user_interface.CommonUtils;
+import ua.konstantynov.test3.user_interface.UpdatableUtils;
 import ua.konstantynov.test3.entities.Doctor;
 import ua.konstantynov.test3.enumerations.DoctorStatus;
 import ua.konstantynov.test3.enumerations.MedicalSpeciality;

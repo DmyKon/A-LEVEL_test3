@@ -15,7 +15,7 @@
 //Thank you.
 package ua.konstantynov.test3;
 
-import ua.konstantynov.test3.UserInterface.implement.MainMenu;
+import ua.konstantynov.test3.user_interface.implement.MainMenu;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package ua.konstantynov.test3.UserInterface.implement;
+package ua.konstantynov.test3.user_interface.implement;
 
 import ua.konstantynov.test3.service.VisitService;
 

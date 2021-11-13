@@ -7,12 +7,13 @@ import org.junit.jupiter.api.Test;
 import ua.konstantynov.test3.entities.Doctor;
 import ua.konstantynov.test3.entities.Patient;
 import ua.konstantynov.test3.entities.Visit;
+import ua.konstantynov.test3.service.VisitService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 class VisitDaoTest {
-    private static VisitDao VISIT_DAO;
+    private static VisitService VISIT_SERVICE;
     Visit visit1;
     Visit visit2;
     Visit visit3;
@@ -21,7 +22,7 @@ class VisitDaoTest {
 
     @BeforeAll
     static void beforeAll() {
-        VISIT_DAO = new VisitDao();
+        VISIT_SERVICE = new VisitService();
     }
 
     @BeforeEach
@@ -44,29 +45,29 @@ class VisitDaoTest {
 
     @Test
     void save() {
-        VISIT_DAO.save(visit1);
-        Assertions.assertEquals(visit1, VISIT_DAO.get(visit1.getId()));
+        VISIT_SERVICE.save(visit1);
+        Assertions.assertEquals(visit1, VISIT_SERVICE.get(visit1.getId()));
     }
 
     @Test
     void update() {
-        VISIT_DAO.save(visit1);
+        VISIT_SERVICE.save(visit1);
         visit1.setRecipe("TEST TEST TEST");
-        VISIT_DAO.update(visit1);
-        Assertions.assertEquals(visit1, VISIT_DAO.get(visit1.getId()));
+        VISIT_SERVICE.update(visit1);
+        Assertions.assertEquals(visit1, VISIT_SERVICE.get(visit1.getId()));
     }
 
     @Test
     void delete() {
-        VISIT_DAO.save(visit1);
-        VISIT_DAO.delete(visit1.getId());
-        Assertions.assertEquals(0, VISIT_DAO.getAll().size());
+        VISIT_SERVICE.save(visit1);
+        VISIT_SERVICE.delete(visit1.getId());
+        Assertions.assertEquals(0, VISIT_SERVICE.getAll().size());
     }
 
     @Test
     void get() {
-        VISIT_DAO.save(visit1);
-        Assertions.assertEquals(visit1, VISIT_DAO.get(visit1.getId()));
+        VISIT_SERVICE.save(visit1);
+        Assertions.assertEquals(visit1, VISIT_SERVICE.get(visit1.getId()));
     }
 
     @Test
@@ -75,17 +76,17 @@ class VisitDaoTest {
         customerList.add(visit1);
         customerList.add(visit2);
         customerList.add(visit3);
-        VISIT_DAO.save(visit1);
-        VISIT_DAO.save(visit2);
-        VISIT_DAO.save(visit3);
-        Assertions.assertEquals(customerList, VISIT_DAO.getAll());
+        VISIT_SERVICE.save(visit1);
+        VISIT_SERVICE.save(visit2);
+        VISIT_SERVICE.save(visit3);
+        Assertions.assertEquals(customerList, VISIT_SERVICE.getAll());
     }
 
     @Test
     void saveRandom() {
-        int countBeforeSave = VISIT_DAO.getAll().size();
-        VISIT_DAO.saveRandom(10);
-        Assertions.assertEquals(countBeforeSave + 10, VISIT_DAO.getAll().size());
+        int countBeforeSave = VISIT_SERVICE.getAll().size();
+        VISIT_SERVICE.saveRandom(10);
+        Assertions.assertEquals(countBeforeSave + 10, VISIT_SERVICE.getAll().size());
 
     }
 }
