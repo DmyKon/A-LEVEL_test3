@@ -62,7 +62,7 @@ public class Visit {
 
     @Override
     public String toString() {
-        return "PatientMedCard{" +
+        return "Visit{" +
                 "id='" + id + '\'' +
                 ", visitDate=" + visitDateTime +
                 ", diagnosis='" + diagnosis + '\'' +
