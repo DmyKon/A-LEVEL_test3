@@ -1,6 +1,8 @@
 package ua.konstantynov.test3.UserInterface.implement;
 
 import ua.konstantynov.test3.UserInterface.CommonUtils;
+import ua.konstantynov.test3.entities.Doctor;
+import ua.konstantynov.test3.entities.Patient;
 import ua.konstantynov.test3.entities.Visit;
 import ua.konstantynov.test3.service.DoctorService;
 import ua.konstantynov.test3.service.PatientService;
@@ -67,22 +69,22 @@ class VisitUtils implements CommonUtils {
         }
         medicalsInput.close();
         visit.setMedicalsList(medicalsList);
-        try {
-            System.out.println("Enter doctor id:");
-            visit.setDoctor(new DoctorService().get(scanner.next()));
-        } catch (NoSuchElementException e) {
-            System.out.println("!!!!! Error: doctors id not found !!!!!");
+        System.out.println("Enter doctor id:");
+        Doctor doctor = new DoctorService().get(scanner.next());
+        if (doctor == null) {
+            System.out.println("!!!!! Error: id not found !!!!!");
             return;
         }
-        try {
-            System.out.println("Enter patient id:");
-            visit.setPatient(new PatientService().get(scanner.next()));
-        } catch (NoSuchElementException e) {
-            System.out.println("!!!!! Error: patient id not found !!!!!");
+        visit.setDoctor(doctor);
+        System.out.println("Enter patient id:");
+        Patient patient = new PatientService().get(scanner.next());
+        visit.setPatient(patient);
+        if (patient == null) {
+            System.out.println("!!!!! Error: id not found !!!!!");
             return;
         }
-        System.out.println("Saving...");
         VISIT_SERVICE.save(visit);
+        System.out.println("Saved");
     }
 
     private static void delete() {
@@ -93,6 +95,7 @@ class VisitUtils implements CommonUtils {
             System.out.println("!!!!! Error: id not found !!!!!");
         } else {
             VISIT_SERVICE.delete(id);
+            System.out.println("Deleted");
         }
     }
 
