@@ -6,7 +6,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainMenu {
-    public static void menu() {
+    public static void run() {
         loop:
         while (true) {
             System.out.println("### Main Menu ###");

@@ -2,6 +2,7 @@ package ua.konstantynov.test3.entities;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
+import ua.konstantynov.test3.enumerations.PatientStatus;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -33,6 +34,10 @@ public class Patient {
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private PatientStatus patientStatus;
+
     @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     private List<Visit> visits;
 
@@ -45,11 +50,12 @@ public class Patient {
                 Objects.equals(firstName, patient.firstName) &&
                 Objects.equals(lastName, patient.lastName) &&
                 Objects.equals(phoneNumber, patient.phoneNumber) &&
-                Objects.equals(birthDate, patient.birthDate);
+                Objects.equals(birthDate, patient.birthDate) &&
+                patientStatus == patient.patientStatus;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, phoneNumber, birthDate);
+        return Objects.hash(id, firstName, lastName, phoneNumber, birthDate, patientStatus);
     }
 }

@@ -7,6 +7,7 @@ import ua.konstantynov.test3.entities.Patient;
 import ua.konstantynov.test3.entities.Visit;
 import ua.konstantynov.test3.enumerations.DoctorStatus;
 import ua.konstantynov.test3.enumerations.MedicalSpeciality;
+import ua.konstantynov.test3.enumerations.PatientStatus;
 import ua.konstantynov.test3.utils.HibernateUtils;
 
 import java.time.LocalDate;
@@ -116,6 +117,8 @@ public class VisitDao {
             long randomDay = ThreadLocalRandom.current().nextLong(minDay, maxDay);
             LocalDate randomDate = LocalDate.ofEpochDay(randomDay);
             patient.setBirthDate(randomDate);
+            patient.setPatientStatus(PatientStatus
+                    .values()[ThreadLocalRandom.current().nextInt(PatientStatus.values().length)]);
             Doctor doctor = new Doctor();
             doctor.setFirstName(names[ThreadLocalRandom.current().nextInt(names.length)]);
             doctor.setLastName(names[ThreadLocalRandom.current().nextInt(names.length)]);

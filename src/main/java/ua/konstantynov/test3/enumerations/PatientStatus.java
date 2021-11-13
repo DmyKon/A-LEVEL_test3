@@ -1,12 +1,12 @@
 package ua.konstantynov.test3.enumerations;
 
-public enum DoctorStatus {
-    ON_VACATION(0),
-    WORKING(1),
-    ON_SICK_LEAVE(2),
-    DISMISSED(3);
+public enum PatientStatus {
+    DISCHARGED(0),
+    AMBULATORY_TREATMENT(1),
+    HOSPITAL_TREATMENT(2),
+    DEAD(3);
 
-    DoctorStatus(int status) {
+    PatientStatus(int status) {
         this.status = status;
     }
 

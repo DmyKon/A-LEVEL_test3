@@ -1,8 +1,25 @@
 package ua.konstantynov.test3.enumerations;
 
 public enum MedicalSpeciality {
-    ALLERGY_AND_IMMUNOLOGY, ANESTHESIOLOGY, DERMATOLOGY, DIAGNOSTIC_RADIOLOGY, EMERGENCY_MEDICINE, FAMILY_MEDICINE,
-    INTERNAL_MEDICINE, MEDICAL_GENETICS, NEUROLOGY, NUCLEAR_MEDICINE, OBSTETRICS_AND_GYNECOLOGY, OPHTHALMOLOGY,
-    PATHOLOGY, PEDIATRICS, PHYSICAL_MEDICINE_AND_REHABILITATION, PREVENTIVE_MEDICINE, PSYCHIATRY,
-    RADIATION_ONCOLOGY, SURGERY, UROLOGY
+    ANESTHESIOLOGY(0),
+    DERMATOLOGY(1),
+    NEUROLOGY(2),
+    NUCLEAR_MEDICINE(3),
+    OPHTHALMOLOGY(4),
+    PATHOLOGY(5),
+    PEDIATRICS(6),
+    PSYCHIATRY(7),
+    SURGERY(8),
+    UROLOGY(9);
+
+    MedicalSpeciality(int status) {
+        this.status = status;
+    }
+
+    private final int status;
+
+    public int getStatus() {
+        return status;
+
+    }
 }
