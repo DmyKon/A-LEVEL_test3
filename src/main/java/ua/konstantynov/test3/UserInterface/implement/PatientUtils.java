@@ -67,15 +67,15 @@ class PatientUtils implements CommonUtils, UpdatableUtils {
             patient.setLastName(scanner.next());
             System.out.println("Enter phone number:");
             patient.setPhoneNumber(scanner.next());
-            System.out.println("Enter year of birth:");
-            int year = scanner.nextInt();
-            System.out.println("Enter month of birth:");
-            int month = scanner.nextInt();
-            System.out.println("Enter day of birth:");
-            int day = scanner.nextInt();
             try {
+                System.out.println("Enter year of birth:");
+                int year = scanner.nextInt();
+                System.out.println("Enter month of birth:");
+                int month = scanner.nextInt();
+                System.out.println("Enter day of birth:");
+                int day = scanner.nextInt();
                 patient.setBirthDate(LocalDate.of(year, month, day));
-            } catch (DateTimeException e) {
+            } catch (DateTimeException | InputMismatchException e) {
                 System.out.println("!!!!! Error: Incorrect date !!!!!");
                 return;
             }
