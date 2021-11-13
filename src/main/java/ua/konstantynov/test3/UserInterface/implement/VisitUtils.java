@@ -84,7 +84,8 @@ class VisitUtils implements CommonUtils {
             return;
         }
         VISIT_SERVICE.save(visit);
-        System.out.println("Saved");
+        System.out.println("Saved: id = ");
+        System.out.println(visit.getId());
     }
 
     private static void delete() {

@@ -159,7 +159,8 @@ class DoctorUtils implements CommonUtils, UpdatableUtils {
             return;
         }
         DOCTOR_SERVICE.save(doctor);
-        System.out.println("Saved");
+        System.out.println("Saved: id = ");
+        System.out.println(doctor.getId());
     }
 
     private static void delete() {

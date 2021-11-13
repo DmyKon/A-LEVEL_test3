@@ -164,7 +164,8 @@ class PatientUtils implements CommonUtils, UpdatableUtils {
             return;
         }
         PATIENT_SERVICE.save(patient);
-        System.out.println("Saved");
+        System.out.println("Saved: id = ");
+        System.out.println(patient.getId());
     }
 
     private static void delete() {
