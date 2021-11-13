@@ -1,1 +1,1 @@
-bash -c "java -jar target/ALEVEL_test3-1.0-SNAPSHOT.jar"
+bash java -jar target/ALEVEL_test3-1.0-SNAPSHOT.jar
